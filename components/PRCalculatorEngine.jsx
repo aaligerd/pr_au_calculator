@@ -3,13 +3,13 @@
 import React, { useState, useMemo } from "react";
 
 export default function PRCalculatorEngine() {
-  // 1. State definitions
-  const [visaSubclass, setVisaSubclass] = useState("189"); // "189" | "190" | "491"
-  const [ageBand, setAgeBand] = useState("25-32"); // default to peak age band
-  const [englishLevel, setEnglishLevel] = useState("competent");
-  const [overseasExp, setOverseasExp] = useState("0");
-  const [australianExp, setAustralianExp] = useState("0");
-  const [education, setEducation] = useState("bachelor");
+  // 1. State definitions (initialized to empty strings so nothing is selected on first load)
+  const [visaSubclass, setVisaSubclass] = useState(""); // "" | "189" | "190" | "491"
+  const [ageBand, setAgeBand] = useState(""); // "" | "18-24" | "25-32" | "33-39" | "40-44" | "45+"
+  const [englishLevel, setEnglishLevel] = useState(""); // "" | "competent" | "proficient" | "superior"
+  const [overseasExp, setOverseasExp] = useState(""); // "" | "0" | "3-4" | "5-7" | "8+"
+  const [australianExp, setAustralianExp] = useState(""); // "" | "0" | "1-2" | "3-4" | "5-7" | "8+"
+  const [education, setEducation] = useState(""); // "" | "doctorate" | "bachelor" | "diploma" | "skills_assessed" | "none"
   
   // Boolean switches
   const [studyRequirement, setStudyRequirement] = useState(false);
@@ -19,7 +19,7 @@ export default function PRCalculatorEngine() {
   const [professionalYear, setProfessionalYear] = useState(false);
 
   // Partner skills
-  const [partnerSkills, setPartnerSkills] = useState("single");
+  const [partnerSkills, setPartnerSkills] = useState(""); // "" | "single" | "partner_skilled" | "partner_english" | "partner_none"
 
   // Copy status feedback
   const [copySuccess, setCopySuccess] = useState(false);
@@ -69,6 +69,35 @@ export default function PRCalculatorEngine() {
     partner_none: 0,
   };
 
+  // Reset handler to clear all states
+  const handleReset = () => {
+    setVisaSubclass("");
+    setAgeBand("");
+    setEnglishLevel("");
+    setOverseasExp("");
+    setAustralianExp("");
+    setEducation("");
+    setPartnerSkills("");
+    setStudyRequirement(false);
+    setStemQualification(false);
+    setCclCertified(false);
+    setRegionalStudy(false);
+    setProfessionalYear(false);
+  };
+
+  // Helper to check if all necessary fields have been selected
+  const allSelected = useMemo(() => {
+    return (
+      visaSubclass !== "" &&
+      ageBand !== "" &&
+      englishLevel !== "" &&
+      overseasExp !== "" &&
+      australianExp !== "" &&
+      education !== "" &&
+      partnerSkills !== ""
+    );
+  }, [visaSubclass, ageBand, englishLevel, overseasExp, australianExp, education, partnerSkills]);
+
   // 3. Dynamic Calculation
   const calculationBreakdown = useMemo(() => {
     const agePts = agePointsMap[ageBand] || 0;
@@ -98,6 +127,7 @@ export default function PRCalculatorEngine() {
       "189": basePoints,
       "190": basePoints + 5,
       "491": basePoints + 15,
+      "": basePoints,
     };
 
     const currentVisaPts = subclassPointsMap[visaSubclass];
@@ -236,17 +266,17 @@ export default function PRCalculatorEngine() {
       `AUSTRALIA PR & VISA POINTS BREAKDOWN SUMMARY`,
       `Site: ausprcalculator.com`,
       `==========================================`,
-      `Visa Subclass selected: Subclass ${visaSubclass} (Points: ${calculationBreakdown.currentTotal})`,
+      `Visa Subclass selected: ${visaSubclass ? `Subclass ${visaSubclass}` : "None Selected"} (Points: ${calculationBreakdown.currentTotal})`,
       `------------------------------------------`,
       `Category-wise Points Breakdown:`,
-      `1. Age Band: ${ageBand === "45+" ? "45 years or over" : ageBand + " years"} -> ${calculationBreakdown.age} pts`,
-      `2. English Language Ability: ${englishLevel.toUpperCase()} -> ${calculationBreakdown.english} pts`,
+      `1. Age Band: ${!ageBand ? "None Selected" : ageBand === "45+" ? "45 years or over" : ageBand + " years"} -> ${calculationBreakdown.age} pts`,
+      `2. English Language Ability: ${englishLevel ? englishLevel.toUpperCase() : "None Selected"} -> ${calculationBreakdown.english} pts`,
       `3. Skilled Experience (Combined Cap: 20 pts):`,
-      `   - Overseas (Outside AU): ${overseasExp} years -> ${calculationBreakdown.overseasExp} pts`,
-      `   - Australian (In AU): ${australianExp} years -> ${calculationBreakdown.australianExp} pts`,
+      `   - Overseas (Outside AU): ${overseasExp !== "" ? `${overseasExp} years` : "None Selected"} -> ${calculationBreakdown.overseasExp} pts`,
+      `   - Australian (In AU): ${australianExp !== "" ? `${australianExp} years` : "None Selected"} -> ${calculationBreakdown.australianExp} pts`,
       `   - Combined Work Experience Point Claimed: ${calculationBreakdown.combinedExp} pts`,
-      `4. Educational Qualification: ${education.toUpperCase().replace("_", " ")} -> ${calculationBreakdown.education} pts`,
-      `5. Partner Skills Status: ${partnerSkills.toUpperCase().replace("_", " ")} -> ${calculationBreakdown.partner} pts`,
+      `4. Educational Qualification: ${education ? education.toUpperCase().replace("_", " ") : "None Selected"} -> ${calculationBreakdown.education} pts`,
+      `5. Partner Skills Status: ${partnerSkills ? partnerSkills.toUpperCase().replace("_", " ") : "None Selected"} -> ${calculationBreakdown.partner} pts`,
       `6. Special Toggles:`,
       `   - Australian Study Requirement: ${studyRequirement ? "Yes (+5 pts)" : "No (0 pts)"}`,
       `   - Specialist STEM Education: ${stemQualification ? "Yes (+10 pts)" : "No (0 pts)"}`,
@@ -273,10 +303,21 @@ export default function PRCalculatorEngine() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       {/* Input controls form container */}
       <section className="lg:col-span-7 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm">
-        <h2 className="text-xl font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
-          <span className="inline-flex items-center justify-center bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 w-8 h-8 rounded-lg text-sm font-semibold">1</span>
-          Visa Eligibility Factors
-        </h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+            <span className="inline-flex items-center justify-center bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 w-8 h-8 rounded-lg text-sm font-semibold">1</span>
+            Visa Eligibility Factors
+          </h2>
+          <button
+            onClick={handleReset}
+            className="flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 hover:bg-red-100 dark:hover:bg-red-900/40 border border-red-200/50 dark:border-red-900/30 px-3.5 py-1.5 rounded-xl shadow-sm hover:shadow active:scale-95 transition-all cursor-pointer"
+          >
+            <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.25" />
+            </svg>
+            Reset Calculator
+          </button>
+        </div>
 
         <div className="space-y-6">
           {/* A1. Visa Subclass Selector */}
@@ -316,8 +357,11 @@ export default function PRCalculatorEngine() {
               id="ageBand"
               value={ageBand}
               onChange={(e) => setAgeBand(e.target.value)}
-              className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+                !ageBand ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+              }`}
             >
+              <option value="" disabled>-- Select Age Band --</option>
               <option value="18-24">18 to 24 years (25 pts)</option>
               <option value="25-32">25 to 32 years (30 pts)</option>
               <option value="33-39">33 to 39 years (25 pts)</option>
@@ -335,8 +379,11 @@ export default function PRCalculatorEngine() {
               id="englishLevel"
               value={englishLevel}
               onChange={(e) => setEnglishLevel(e.target.value)}
-              className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+                !englishLevel ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+              }`}
             >
+              <option value="" disabled>-- Select English Level --</option>
               <option value="competent">Competent English (IELTS 6.0 / PTE 50) (0 pts)</option>
               <option value="proficient">Proficient English (IELTS 7.0 / PTE 65) (10 pts)</option>
               <option value="superior">Superior English (IELTS 8.0 / PTE 79) (20 pts)</option>
@@ -345,12 +392,14 @@ export default function PRCalculatorEngine() {
 
           {/* A4. Skilled Employment Experience */}
           <div className="bg-zinc-50 dark:bg-zinc-950/40 rounded-2xl p-4 border border-zinc-100 dark:border-zinc-900">
-            <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-3 flex items-center justify-between">
-              <span>Skilled Employment Experience</span>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200">
+                Skilled Employment Experience
+              </h3>
               <span className="text-[10px] uppercase font-mono tracking-wider text-teal-600 dark:text-teal-400 bg-teal-100/50 dark:bg-teal-950/30 px-2 py-0.5 rounded-full">
                 Combined Cap: 20 pts Max
               </span>
-            </h3>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -361,8 +410,11 @@ export default function PRCalculatorEngine() {
                   id="overseasExp"
                   value={overseasExp}
                   onChange={(e) => setOverseasExp(e.target.value)}
-                  className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3.5 py-2.5 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-xs"
+                  className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3.5 py-2.5 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-xs ${
+                    overseasExp === "" ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+                  }`}
                 >
+                  <option value="" disabled>-- Select Experience --</option>
                   <option value="0">Less than 3 years (0 pts)</option>
                   <option value="3-4">3 to 4 years (5 pts)</option>
                   <option value="5-7">5 to 7 years (10 pts)</option>
@@ -378,8 +430,11 @@ export default function PRCalculatorEngine() {
                   id="australianExp"
                   value={australianExp}
                   onChange={(e) => setAustralianExp(e.target.value)}
-                  className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3.5 py-2.5 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-xs"
+                  className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3.5 py-2.5 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-xs ${
+                    australianExp === "" ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+                  }`}
                 >
+                  <option value="" disabled>-- Select Experience --</option>
                   <option value="0">Less than 1 year (0 pts)</option>
                   <option value="1-2">1 to 2 years (5 pts)</option>
                   <option value="3-4">3 to 4 years (10 pts)</option>
@@ -404,8 +459,11 @@ export default function PRCalculatorEngine() {
               id="education"
               value={education}
               onChange={(e) => setEducation(e.target.value)}
-              className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+                !education ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+              }`}
             >
+              <option value="" disabled>-- Select Education --</option>
               <option value="doctorate">Doctorate / PhD from AU or recognized overseas institution (20 pts)</option>
               <option value="bachelor">Bachelor degree or higher from AU or recognized overseas institution (15 pts)</option>
               <option value="diploma">Trade Qualification or Diploma completed in AU or overseas (10 pts)</option>
@@ -423,8 +481,11 @@ export default function PRCalculatorEngine() {
               id="partnerSkills"
               value={partnerSkills}
               onChange={(e) => setPartnerSkills(e.target.value)}
-              className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm"
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+                !partnerSkills ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
+              }`}
             >
+              <option value="" disabled>-- Select Partner Status --</option>
               <option value="single">Single or partner is an Australian Citizen / Permanent Resident (+10 pts)</option>
               <option value="partner_skilled">Partner is under 45, has Competent English & a suitable Skills Assessment (+10 pts)</option>
               <option value="partner_english">Partner has Competent English only (No Skills Assessment) (+5 pts)</option>
@@ -478,7 +539,9 @@ export default function PRCalculatorEngine() {
               <p className="text-xs uppercase font-semibold tracking-wider text-teal-100 mb-1">
                 Your Calculated Points Score
               </p>
-              <h3 className="text-lg font-bold">Subclass {visaSubclass} Total Score</h3>
+              <h3 className="text-lg font-bold">
+                {visaSubclass ? `Subclass ${visaSubclass} Total Score` : "Total Calculated Score"}
+              </h3>
             </div>
             
             <div className="my-8 flex items-baseline gap-2">
@@ -490,7 +553,12 @@ export default function PRCalculatorEngine() {
 
             <div className="flex items-center justify-between pt-4 border-t border-white/20">
               <span className="text-xs text-teal-100 font-medium">
-                {calculationBreakdown.currentTotal >= 65 ? (
+                {!allSelected ? (
+                  <span className="inline-flex items-center gap-1.5 bg-black/20 px-2.5 py-1 rounded-full text-[11px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse"></span>
+                    Select all factors for final score
+                  </span>
+                ) : calculationBreakdown.currentTotal >= 65 ? (
                   <span className="inline-flex items-center gap-1.5 bg-white/20 px-2.5 py-1 rounded-full text-xs">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-300 animate-pulse"></span>
                     Eligible to apply (65+ points)
@@ -565,7 +633,7 @@ export default function PRCalculatorEngine() {
                   key={rec.id}
                   className="flex items-start gap-3 p-3 bg-zinc-50 dark:bg-zinc-950/40 rounded-2xl border border-zinc-100 dark:border-zinc-900/60"
                 >
-                  <span className="inline-flex items-center justify-center bg-teal-100 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 text-xs font-bold px-2 py-1 rounded-lg shrink-0">
+                  <span className="inline-flex items-center justify-center bg-teal-100 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 text-xs font-bold shrink-0">
                     {rec.points}
                   </span>
                   <div className="flex-1 min-w-0">
