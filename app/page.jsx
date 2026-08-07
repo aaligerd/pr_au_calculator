@@ -2,14 +2,7 @@ import React from "react";
 import PRCalculatorEngine from "../components/PRCalculatorEngine";
 import SeoContentSection from "../components/SeoContentSection";
 import SchemaMarkup from "../components/SchemaMarkup";
-
-export const metadata = {
-  title: "Australia PR Points Calculator 2026 | Skilled Migration Points Estimator",
-  description: "Calculate your points for Australia Subclass 189, 190, and 491 visas instantly. Updated with official Department of Home Affairs SkillSelect criteria.",
-  alternates: {
-    canonical: "https://ausprcalculator.com",
-  },
-};
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -42,15 +35,7 @@ export default function Home() {
       </div>
 
       {/* Modern footer */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 py-8 text-center text-xs text-zinc-500 dark:text-zinc-600 mt-20">
-        <div className="max-w-6xl mx-auto px-4 space-y-2">
-          <p>© {new Date().getFullYear()} ausprcalculator.com. All rights reserved.</p>
-          <p className="max-w-xl mx-auto leading-relaxed">
-            Disclaimer: This points calculator is a tool to help estimate your score under the Australian migration points test. 
-            Official assessment depends entirely on SkillSelect validation and skills assessments by relevant authorities.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

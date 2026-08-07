@@ -199,31 +199,67 @@ export default function SeoContentSection() {
         <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-6">
           Frequently Asked Questions
         </h2>
-        <div className="space-y-6">
-          <div className="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-150 dark:border-zinc-800/80 rounded-2xl">
-            <h3 className="text-base md:text-lg font-bold text-zinc-900 dark:text-white mb-2">
-              What is the minimum points score to apply for Australia PR?
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              How many points do I need for PR Australia?
             </h3>
-            <p className="text-sm md:text-base text-zinc-650 dark:text-zinc-400 leading-relaxed">
-              The official minimum points score required to file a SkillSelect Expression of Interest (EOI) for the Subclass 189, 190, or 491 visas is <strong>65 points</strong>. However, because invitations are issued on a competitive basis, a higher score significantly improves your likelihood of receiving an Invitation to Apply (ITA).
+            <p className="text-slate-400 text-sm leading-relaxed">
+              The minimum pass mark to submit an Expression of Interest (EOI) for Australia Skilled Independent (Subclass 189), State Nominated (Subclass 190), or Regional (Subclass 491) visas is 65 points. However, competitive invitation rounds often require higher scores depending on your nominated occupation.
             </p>
           </div>
 
-          <div className="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-150 dark:border-zinc-800/80 rounded-2xl">
-            <h3 className="text-base md:text-lg font-bold text-zinc-900 dark:text-white mb-2">
-              How does NAATI CCL help with Australian immigration points?
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Can I get PR with 70 points in Australia?
             </h3>
-            <p className="text-sm md:text-base text-zinc-650 dark:text-zinc-400 leading-relaxed">
-              Passing the Credentialled Community Language (CCL) test conducted by the National Accreditation Authority for Translators and Interpreters (NAATI) awards you <strong>5 bonus points</strong>. This exam assesses your capability to translate dialogues from English to a community language and vice versa.
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Yes, 70 points is above the minimum 65-point requirement. While Subclass 189 federal invitations can be competitive, 70 points makes you eligible for Subclass 190 state nominations (adding +5 points) or Subclass 491 regional visas (adding +15 points).
             </p>
           </div>
 
-          <div className="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-150 dark:border-zinc-800/80 rounded-2xl">
-            <h3 className="text-base md:text-lg font-bold text-zinc-900 dark:text-white mb-2">
-              Can I combine overseas and Australian work experience points?
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Can I get PR with 60 points?
             </h3>
-            <p className="text-sm md:text-base text-zinc-650 dark:text-zinc-400 leading-relaxed">
-              Yes, you can claim points for both overseas and Australian skilled employment if they are in your nominated occupation or a closely related one. However, the Department of Home Affairs enforces a strict <strong>hard cap of 20 points combined</strong> maximum. If your total work experience points exceed 20, they will be restricted to 20 points in the final calculation.
+            <p className="text-slate-400 text-sm leading-relaxed">
+              No, you cannot directly lodge an Expression of Interest for Subclass 189 or 190 with 60 points, as the mandatory minimum threshold is 65 points. However, with 60 base points, you can apply for a Subclass 491 Regional Provisional Visa, which automatically awards you +15 bonus points, bringing your total score to 75.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Can I apply 491 with 50 points?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Yes! The Subclass 491 (Skilled Work Regional) visa provides 15 bonus nomination points. If you have 50 base points, adding the 15 regional nomination points brings your total to 65 points, meeting the required threshold.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Is 75 points good for Australia PR?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Yes, 75 points is considered a solid score for Australian permanent residency, particularly for state-nominated (Subclass 190) and regional (Subclass 491) visas.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Which city is easy to get PR in Australia?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Designated regional areas like Adelaide (South Australia), Perth (Western Australia), Hobart (Tasmania), and regional NSW/QLD offer easier pathways to PR via Subclass 491 and 190 state nominations due to lower point cutoffs.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 md:col-span-2">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              Is it easy to get PR in Australia?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Getting PR in Australia depends on your ANZSCO occupation, age, English proficiency, and willingness to live in regional areas. Maximizing points through Superior English (PTE 79+ / IELTS 8.0) and NAATI CCL accreditation significantly improves your invitation chances.
             </p>
           </div>
         </div>
