@@ -2,9 +2,9 @@
 
 import React, { useState, useMemo } from "react";
 
-export default function PRCalculatorEngine() {
-  // 1. State definitions (initialized to empty strings so nothing is selected on first load)
-  const [visaSubclass, setVisaSubclass] = useState(""); // "" | "189" | "190" | "491"
+export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
+  // 1. State definitions (initialized to initialSubclass or empty string)
+  const [visaSubclass, setVisaSubclass] = useState(initialSubclass); // "" | "189" | "190" | "491"
   const [ageBand, setAgeBand] = useState(""); // "" | "18-24" | "25-32" | "33-39" | "40-44" | "45+"
   const [englishLevel, setEnglishLevel] = useState(""); // "" | "competent" | "proficient" | "superior"
   const [overseasExp, setOverseasExp] = useState(""); // "" | "0" | "3-4" | "5-7" | "8+"
@@ -71,7 +71,7 @@ export default function PRCalculatorEngine() {
 
   // Reset handler to clear all states
   const handleReset = () => {
-    setVisaSubclass("");
+    setVisaSubclass(initialSubclass);
     setAgeBand("");
     setEnglishLevel("");
     setOverseasExp("");

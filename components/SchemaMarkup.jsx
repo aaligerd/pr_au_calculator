@@ -4,10 +4,11 @@ export default function SchemaMarkup() {
   const schema = [
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "name": "Australia PR Points Calculator",
       "operatingSystem": "All",
       "applicationCategory": "UtilityApplication",
+      "browserRequirements": "Requires JavaScript and HTML5 compatible browser",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -64,6 +65,22 @@ export default function SchemaMarkup() {
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Designated regional areas like Adelaide (South Australia), Perth (Western Australia), Hobart (Tasmania), and regional NSW/QLD offer easier pathways to PR via Subclass 491 and 190 state nominations due to lower point cutoffs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the DIBP points test or SkillSelect system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Department of Home Affairs (formerly DIBP) uses the SkillSelect points test to assess candidates for skilled migration. Points are awarded based on age, English capability, work experience, qualifications, and state/regional sponsorship. You must score at least 65 points to submit an EOI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do PTE, IELTS, or CELPIP scores calculate points for Australian PR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "English proficiency is a key points driver. Competent English (IELTS 6.0 / PTE 50) awards 0 points. Proficient English (IELTS 7.0 / PTE 65 / CELPIP 7) awards 10 points. Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) awards 20 points, significantly improving your invitation chances."
           }
         },
         {

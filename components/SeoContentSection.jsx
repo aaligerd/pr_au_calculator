@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function SeoContentSection() {
   return (
@@ -19,13 +20,25 @@ export default function SeoContentSection() {
           </p>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Subclass 189 (Skilled Independent Visa):</strong> A permanent resident visa that does not require sponsorship from a state, territory, or family member. Points are based entirely on your personal credentials.
+              <strong>
+                <Link href="/subclass-189" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
+                  Subclass 189 (Skilled Independent Visa):
+                </Link>
+              </strong> A permanent resident visa that does not require sponsorship from a state, territory, or family member. Points are based entirely on your personal credentials.
             </li>
             <li>
-              <strong>Subclass 190 (Skilled Nominated Visa):</strong> A permanent resident visa requiring nomination by an Australian State or Territory government. Gaining nomination automatically awards an additional <strong>5 points</strong>.
+              <strong>
+                <Link href="/subclass-190" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
+                  Subclass 190 (Skilled Nominated Visa):
+                </Link>
+              </strong> A permanent resident visa requiring nomination by an Australian State or Territory government. Gaining nomination automatically awards an additional <strong>5 points</strong>.
             </li>
             <li>
-              <strong>Subclass 491 (Skilled Work Regional Provisional Visa):</strong> A 5-year provisional pathway requiring sponsorship by a state government or an eligible relative living in regional Australia. It automatically grants an extra <strong>15 points</strong>.
+              <strong>
+                <Link href="/subclass-491" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
+                  Subclass 491 (Skilled Work Regional Provisional Visa):
+                </Link>
+              </strong> A 5-year provisional pathway requiring sponsorship by a state government or an eligible relative living in regional Australia. It automatically grants an extra <strong>15 points</strong>.
             </li>
           </ul>
           <p className="bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 p-4 rounded-r-xl text-amber-900 dark:text-amber-300 text-sm mt-4">
@@ -251,6 +264,24 @@ export default function SeoContentSection() {
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Designated regional areas like Adelaide (South Australia), Perth (Western Australia), Hobart (Tasmania), and regional NSW/QLD offer easier pathways to PR via Subclass 491 and 190 state nominations due to lower point cutoffs.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              What is the DIBP points test or SkillSelect system?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              The Department of Home Affairs (formerly DIBP) uses the SkillSelect points test to assess candidates for skilled migration. Points are awarded based on age, English capability, work experience, qualifications, and state/regional sponsorship. You must score at least 65 points to submit an EOI.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 className="text-sky-400 font-semibold mb-2">
+              How do PTE, IELTS, or CELPIP scores calculate points for Australian PR?
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              English proficiency is a key points driver. Competent English (IELTS 6.0 / PTE 50) awards 0 points. Proficient English (IELTS 7.0 / PTE 65 / CELPIP 7) awards 10 points. Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) awards 20 points, significantly improving your invitation chances.
             </p>
           </div>
 
