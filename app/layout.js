@@ -52,9 +52,9 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">{children}</body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-J8KM2W8J36"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

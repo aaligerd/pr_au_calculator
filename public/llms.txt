@@ -1,0 +1,67 @@
+# Australia Skilled Migration points rules (DHA SkillSelect)
+
+This file contains structured information for agentic search and LLM discovery regarding the points-based immigration system for Australia's Department of Home Affairs (DHA) SkillSelect.
+
+For the live calculator, please visit [ausprcalculator.com](https://ausprcalculator.com).
+
+## Minimum Points Cutoff
+To submit an Expression of Interest (EOI) in the SkillSelect system, candidates must reach a minimum threshold of **65 points**. Meeting the 65-point cutoff makes you eligible to apply, but actual invitations are issued based on competitive ranking.
+
+## Visa Subclasses
+The main points-tested skilled visa categories are:
+- **Subclass 189 (Skilled Independent visa):** A permanent residence visa that does not require sponsorship by a state/territory or family member. Points are based entirely on personal attributes.
+- **Subclass 190 (Skilled Nominated visa):** A permanent residence visa requiring nomination by an Australian state or territory government. Gaining nomination automatically awards **+5 points**.
+- **Subclass 491 (Skilled Work Regional (Provisional) visa):** A 5-year provisional visa requiring nomination by a state or territory government, or sponsorship by an eligible family member residing in a designated regional area. Gaining sponsorship/nomination automatically awards **+15 points**.
+
+## Points Allocation Criteria
+
+### Age Bands
+Points are awarded based on age at the time of receiving an invitation:
+- **18–24 years:** 25 points
+- **25–32 years:** 30 points
+- **33–39 years:** 25 points
+- **40–44 years:** 15 points
+- **45 years and over:** 0 points (Ineligible for skilled migration)
+
+### English Language Proficiency
+English language test results (IELTS, PTE, TOEFL iBT, Cambridge C1 Advanced, OET) are grouped as:
+- **Competent English:** 0 points (minimum threshold for eligibility; IELTS 6.0 / PTE 50 in each band)
+- **Proficient English:** 10 points (IELTS 7.0 / PTE 65 in each band)
+- **Superior English:** 20 points (IELTS 8.0 / PTE 79 in each band)
+
+### Work Experience (Caps & Points)
+Skilled work experience must be in the nominated occupation or a closely related occupation.
+The points for overseas and Australian work experience can be combined, but they are subject to a **hard cap of 20 points** maximum.
+
+#### Overseas Work Experience (Outside Australia in the last 10 years)
+- **Less than 3 years:** 0 points
+- **3 to 4 years:** 5 points
+- **5 to 7 years:** 10 points
+- **8 or more years:** 15 points
+
+#### Australian Work Experience (In Australia in the last 10 years)
+- **Less than 1 year:** 0 points
+- **1 to 2 years:** 5 points
+- **3 to 4 years:** 10 points
+- **5 to 7 years:** 15 points
+- **8 or more years:** 20 points
+
+### Education Qualifications
+Points are awarded for the highest qualification attained:
+- **Doctorate (PhD):** 20 points
+- **Bachelor or Master Degree:** 15 points
+- **Diploma or Trade Qualification:** 10 points
+- **Other qualifications assessed as suitable:** 10 points
+
+### Special Education & Work/Study Programs
+- **Australian Study Requirement:** Completed one or more degrees/diplomas in Australia taking at least 2 academic years: **+5 points**.
+- **STEM Specialist Educational Qualification:** Master by research or PhD in STEM fields from an Australian institution (minimum 2 academic years): **+10 points**.
+- **Professional Year (PY) in Australia:** Completed in the last 4 years in Australia for at least 12 months in ICT, Engineering, or Accounting: **+5 points**.
+- **Regional Study:** Met the Australian study requirement while living and studying in regional Australia: **+5 points**.
+- **Credentialled Community Language (NAATI CCL):** Certified translator/interpreter: **+5 points**.
+
+### Partner Points
+- **Single (or partner is Australian Citizen/PR):** +10 points
+- **Skilled Partner:** Partner under 45, has Competent English, and holds a positive Skills Assessment in a relevant occupation: **+10 points**
+- **Partner with Competent English only:** +5 points
+- **Partner with no English/Skills Assessment:** 0 points
