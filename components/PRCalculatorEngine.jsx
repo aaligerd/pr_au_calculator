@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 
 export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
   // 1. State definitions (initialized to initialSubclass or empty string)
@@ -310,21 +311,32 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
           </h2>
           <button
             onClick={handleReset}
-            className="flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 hover:bg-red-100 dark:hover:bg-red-900/40 border border-red-200/50 dark:border-red-900/30 px-3.5 py-1.5 rounded-xl shadow-sm hover:shadow active:scale-95 transition-all cursor-pointer"
+            className="flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/30 hover:bg-red-100 dark:hover:bg-red-900/40 border border-red-200/50 dark:border-red-900/30 px-3.5 py-2 rounded-xl shadow-xs active:scale-95 transition-all cursor-pointer min-h-[44px]"
+            aria-label="Reset Calculator Inputs"
           >
             <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.25" />
             </svg>
-            Reset Calculator
+            Reset
           </button>
         </div>
 
         <div className="space-y-6">
           {/* A1. Visa Subclass Selector */}
           <div>
-            <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-3">
-              Select Your Visa Subclass Target
-            </label>
+            <div className="flex items-center justify-between mb-3">
+              <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                Select Your Visa Subclass Target
+              </label>
+              <div className="flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+                <span>Guides:</span>
+                <Link href="/subclass-189" className="text-teal-600 dark:text-teal-400 hover:underline">189</Link>
+                <span>•</span>
+                <Link href="/subclass-190" className="text-teal-600 dark:text-teal-400 hover:underline">190</Link>
+                <span>•</span>
+                <Link href="/subclass-491" className="text-teal-600 dark:text-teal-400 hover:underline">491</Link>
+              </div>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {[
                 { id: "189", name: "Subclass 189", desc: "Skilled Independent" },
@@ -335,7 +347,7 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
                   key={sub.id}
                   type="button"
                   onClick={() => setVisaSubclass(sub.id)}
-                  className={`flex flex-col text-left p-3.5 rounded-xl border transition-all cursor-pointer ${
+                  className={`flex flex-col text-left p-3.5 rounded-xl border transition-all cursor-pointer min-h-[56px] justify-center ${
                     visaSubclass === sub.id
                       ? "border-teal-500 bg-teal-50/40 dark:bg-teal-950/20 text-teal-900 dark:text-teal-300 ring-2 ring-teal-500/20"
                       : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 bg-white dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400"
@@ -357,16 +369,16 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
               id="ageBand"
               value={ageBand}
               onChange={(e) => setAgeBand(e.target.value)}
-              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 min-h-[44px] focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
                 !ageBand ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
               }`}
             >
               <option value="" disabled>-- Select Age Band --</option>
               <option value="18-24">18 to 24 years (25 pts)</option>
-              <option value="25-32">25 to 32 years (30 pts)</option>
+              <option value="25-32">25 to 32 years (30 pts - Maximum)</option>
               <option value="33-39">33 to 39 years (25 pts)</option>
               <option value="40-44">40 to 44 years (15 pts)</option>
-              <option value="45+">45 years or over (0 pts)</option>
+              <option value="45+">45 years or over (0 pts - Ineligible)</option>
             </select>
           </div>
 
@@ -379,14 +391,14 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
               id="englishLevel"
               value={englishLevel}
               onChange={(e) => setEnglishLevel(e.target.value)}
-              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
+              className={`w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 min-h-[44px] focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none text-sm ${
                 !englishLevel ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-900 dark:text-zinc-100"
               }`}
             >
               <option value="" disabled>-- Select English Level --</option>
-              <option value="competent">Competent English (IELTS 6.0 / PTE 50) (0 pts)</option>
-              <option value="proficient">Proficient English (IELTS 7.0 / PTE 65) (10 pts)</option>
-              <option value="superior">Superior English (IELTS 8.0 / PTE 79) (20 pts)</option>
+              <option value="competent">Competent English (IELTS 6.0 / PTE 50 / CELPIP 7) (0 pts)</option>
+              <option value="proficient">Proficient English (IELTS 7.0 / PTE 65 / CELPIP 8) (10 pts)</option>
+              <option value="superior">Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) (20 pts)</option>
             </select>
           </div>
 
@@ -573,7 +585,8 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
 
               <button
                 onClick={handleCopyBreakdown}
-                className="flex items-center gap-1.5 bg-white text-teal-800 font-semibold text-xs px-3.5 py-2 rounded-xl shadow-sm hover:bg-teal-50 active:scale-95 transition-all cursor-pointer"
+                className="flex items-center gap-1.5 bg-white text-teal-800 font-semibold text-xs px-3.5 py-2 rounded-xl shadow-xs hover:bg-teal-50 active:scale-95 transition-all cursor-pointer min-h-[44px]"
+                aria-label="Copy points breakdown summary"
               >
                 {copySuccess ? (
                   <>
@@ -607,7 +620,7 @@ export default function PRCalculatorEngine({ initialSubclass = "" } = {}) {
               <button
                 key={visa.id}
                 onClick={() => setVisaSubclass(visa.id)}
-                className={`p-3 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
+                className={`p-3 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[72px] ${
                   visaSubclass === visa.id
                     ? "border-teal-500 bg-teal-50/20 dark:bg-teal-950/10 text-teal-800 dark:text-teal-300 ring-2 ring-teal-500/20"
                     : "border-zinc-150 dark:border-zinc-800 hover:border-zinc-200 dark:hover:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-950/20 text-zinc-500 dark:text-zinc-500"

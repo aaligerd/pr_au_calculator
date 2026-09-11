@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import Header from "../components/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,16 +13,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0d9488",
+};
+
 export const metadata = {
-  title: "Australia PR Points Calculator | Skilled Migration Estimator",
-  description: "Calculate your points for Australia Subclass 189, 190, and 491 visas instantly. Updated with official Department of Home Affairs criteria.",
+  title: {
+    default: "Australia PR Points Calculator | Skilled Migration Estimator 2026",
+    template: "%s | ausprcalculator.com",
+  },
+  description:
+    "Calculate your points for Australia Subclass 189, 190, and 491 visas instantly. Updated with official Department of Home Affairs SkillSelect criteria.",
   metadataBase: new URL("https://ausprcalculator.com"),
   alternates: {
     canonical: "https://ausprcalculator.com",
   },
   openGraph: {
     title: "Australia PR Points Calculator",
-    description: "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
+    description:
+      "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
     url: "https://ausprcalculator.com",
     siteName: "Australia PR Points Calculator",
     images: [
@@ -38,8 +51,11 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Australia PR Points Calculator",
-    description: "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
-    images: ["https://d1yr7ysliv0ys4.cloudfront.net/site-content/aus_pr_calculator.webp"],
+    description:
+      "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
+    images: [
+      "https://d1yr7ysliv0ys4.cloudfront.net/site-content/aus_pr_calculator.webp",
+    ],
   },
 };
 
@@ -49,20 +65,23 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-J8KM2W8J36"
-        strategy="lazyOnload"
-      />
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+      <body className="min-h-full flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-150">
+        <Header />
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J8KM2W8J36"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'G-J8KM2W8J36');
-        `}
-      </Script>
+            gtag('config', 'G-J8KM2W8J36');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }

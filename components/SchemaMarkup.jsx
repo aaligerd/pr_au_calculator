@@ -1,104 +1,60 @@
 import React from "react";
 
-export default function SchemaMarkup() {
-  const schema = [
+export default function SchemaMarkup({
+  faqs = null,
+  appName = "Australia PR Points Calculator",
+  pageUrl = "https://ausprcalculator.com",
+  appDescription = "Calculate your points for Australia Subclass 189, 190, and 491 visas instantly. Updated with official Department of Home Affairs criteria.",
+  includeWebSite = false,
+}) {
+  const schemas = [
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Australia PR Points Calculator",
+      "name": appName,
+      "url": pageUrl,
+      "description": appDescription,
       "operatingSystem": "All",
       "applicationCategory": "UtilityApplication",
       "browserRequirements": "Requires JavaScript and HTML5 compatible browser",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "AUD"
-      }
+        "priceCurrency": "AUD",
+      },
     },
-    {
+  ];
+
+  if (includeWebSite) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Australia PR Points Calculator",
+      "url": "https://ausprcalculator.com",
+      "inLanguage": "en-AU",
+      "description": "Comprehensive Australia skilled migration points calculator for Subclass 189, 190, and 491 visas.",
+    });
+  }
+
+  if (faqs && faqs.length > 0) {
+    schemas.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How many points do I need for PR Australia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The minimum pass mark to submit an Expression of Interest (EOI) for Australia Skilled Independent (Subclass 189), State Nominated (Subclass 190), or Regional (Subclass 491) visas is 65 points. However, competitive invitation rounds often require higher scores depending on your nominated occupation."
-          }
+      "mainEntity": faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer,
         },
-        {
-          "@type": "Question",
-          "name": "Can I get PR with 70 points in Australia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, 70 points is above the minimum 65-point requirement. While Subclass 189 federal invitations can be competitive, 70 points makes you eligible for Subclass 190 state nominations (adding +5 points) or Subclass 491 regional visas (adding +15 points)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I get PR with 60 points?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, you cannot directly lodge an Expression of Interest for Subclass 189 or 190 with 60 points, as the mandatory minimum threshold is 65 points. However, with 60 base points, you can apply for a Subclass 491 Regional Provisional Visa, which automatically awards you +15 bonus points, bringing your total score to 75."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I apply 491 with 50 points?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! The Subclass 491 (Skilled Work Regional) visa provides 15 bonus nomination points. If you have 50 base points, adding the 15 regional nomination points brings your total to 65 points, meeting the required threshold."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is 75 points good for Australia PR?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, 75 points is considered a solid score for Australian permanent residency, particularly for state-nominated (Subclass 190) and regional (Subclass 491) visas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which city is easy to get PR in Australia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Designated regional areas like Adelaide (South Australia), Perth (Western Australia), Hobart (Tasmania), and regional NSW/QLD offer easier pathways to PR via Subclass 491 and 190 state nominations due to lower point cutoffs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the DIBP points test or SkillSelect system?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Department of Home Affairs (formerly DIBP) uses the SkillSelect points test to assess candidates for skilled migration. Points are awarded based on age, English capability, work experience, qualifications, and state/regional sponsorship. You must score at least 65 points to submit an EOI."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do PTE, IELTS, or CELPIP scores calculate points for Australian PR?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "English proficiency is a key points driver. Competent English (IELTS 6.0 / PTE 50) awards 0 points. Proficient English (IELTS 7.0 / PTE 65 / CELPIP 7) awards 10 points. Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) awards 20 points, significantly improving your invitation chances."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is it easy to get PR in Australia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Getting PR in Australia depends on your ANZSCO occupation, age, English proficiency, and willingness to live in regional areas. Maximizing points through Superior English (PTE 79+ / IELTS 8.0) and NAATI CCL accreditation significantly improves your invitation chances."
-          }
-        }
-      ]
-    }
-  ];
+      })),
+    });
+  }
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
     />
   );
 }

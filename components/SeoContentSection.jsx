@@ -1,206 +1,256 @@
 import React from "react";
 import Link from "next/link";
 
+export const homepageFaqs = [
+  {
+    question: "How many points do I need for Australian PR in 2026?",
+    answer:
+      "The minimum pass mark to lodge an Expression of Interest (EOI) in SkillSelect is 65 points for Subclass 189, Subclass 190, and Subclass 491 visas. However, competitive invitation rounds often require higher scores (80–95+) for high-demand fields such as IT, Engineering, and Accounting.",
+  },
+  {
+    question: "What is the difference between Subclass 189, 190, and 491?",
+    answer:
+      "Subclass 189 is an independent permanent visa requiring no sponsor. Subclass 190 is a permanent visa requiring state government nomination which awards +5 points. Subclass 491 is a 5-year provisional regional visa requiring state or family regional sponsorship which awards +15 points, with a direct pathway to permanent residency via Subclass 191.",
+  },
+  {
+    question: "Can I get PR in Australia with 70 points?",
+    answer:
+      "Yes, 70 points exceeds the 65-point eligibility threshold. While federal Subclass 189 invitations for IT/Engineering may require higher scores, 70 points makes you an excellent candidate for Subclass 190 state nomination (giving you 75 total points) or Subclass 491 regional sponsorship (giving you 85 total points).",
+  },
+  {
+    question: "Can I apply for an Australian skilled visa with 60 base points?",
+    answer:
+      "Yes, via the Subclass 491 Regional visa. Because regional nomination provides an automatic +15 points, having 60 base points elevates your total score to 75 points, comfortably exceeding the 65-point requirement.",
+  },
+  {
+    question: "How does English test scoring impact Australian PR points?",
+    answer:
+      "Scoring Competent English (IELTS 6.0 / PTE 50 / CELPIP 7) awards 0 points. Proficient English (IELTS 7.0 / PTE 65 / CELPIP 8) awards 10 points. Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) awards 20 points.",
+  },
+  {
+    question: "Is there an age limit for Australian skilled migration points?",
+    answer:
+      "Yes, applicants must be under 45 years of age at the time of invitation to apply for Subclass 189, 190, or 491 visas. The highest points bracket is for candidates aged 25 to 32, who receive 30 points.",
+  },
+];
+
 export default function SeoContentSection() {
   return (
     <section className="mt-16 space-y-12 border-t border-zinc-200 dark:border-zinc-800 pt-16">
-      {/* SECTION 1: Point Allocation Guide */}
-      <article className="prose prose-zinc dark:prose-invert max-w-none">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
-          Official Department of Home Affairs Point Allocation Guide
-        </h2>
-        <div className="text-zinc-600 dark:text-zinc-400 space-y-4 text-sm md:text-base leading-relaxed">
-          <p>
-            To apply for skilled migration to Australia through the points-tested visa pathways, you must first submit an 
-            <strong> Expression of Interest (EOI)</strong> through the Department of Home Affairs’ online <strong>SkillSelect</strong> system. 
-            The base eligibility threshold to be invited to apply is a minimum of <strong>65 points</strong>.
-          </p>
-          <p>
-            This point system applies specifically to the following key visa subclasses:
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <strong>
-                <Link href="/subclass-189" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
-                  Subclass 189 (Skilled Independent Visa):
-                </Link>
-              </strong> A permanent resident visa that does not require sponsorship from a state, territory, or family member. Points are based entirely on your personal credentials.
-            </li>
-            <li>
-              <strong>
-                <Link href="/subclass-190" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
-                  Subclass 190 (Skilled Nominated Visa):
-                </Link>
-              </strong> A permanent resident visa requiring nomination by an Australian State or Territory government. Gaining nomination automatically awards an additional <strong>5 points</strong>.
-            </li>
-            <li>
-              <strong>
-                <Link href="/subclass-491" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-semibold underline">
-                  Subclass 491 (Skilled Work Regional Provisional Visa):
-                </Link>
-              </strong> A 5-year provisional pathway requiring sponsorship by a state government or an eligible relative living in regional Australia. It automatically grants an extra <strong>15 points</strong>.
-            </li>
-          </ul>
-          <p className="bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 p-4 rounded-r-xl text-amber-900 dark:text-amber-300 text-sm mt-4">
-            <strong>Important Note:</strong> Reaching the 65-point benchmark makes you eligible to enter the SkillSelect pool, but it does not guarantee an Invitation to Apply (ITA). Due to high competition, competitive fields such as Engineering, IT, and Finance often require significantly higher scores to receive an invitation.
-          </p>
-        </div>
-      </article>
-
-      {/* SECTION 2: Points Breakdown Table */}
+      {/* SECTION 1: Visa Comparison Matrix */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-6">
-          Australia PR Points Breakdown Table
+        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight mb-4">
+          Compare Australian Skilled Visas: Subclass 189 vs 190 vs 491
         </h2>
-        <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        <p className="text-zinc-650 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6">
+          Depending on your personal points score and ANZSCO occupation, you may qualify for one or more points-tested visa streams administered under the Australian <strong>SkillSelect</strong> points system.
+        </p>
+
+        <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
           <table className="w-full text-left border-collapse text-xs md:text-sm">
             <thead>
-              <tr className="bg-zinc-50 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800">
-                <th className="p-4 font-bold">Category</th>
-                <th className="p-4 font-bold">Criteria & Description</th>
-                <th className="p-4 font-bold text-right">Points</th>
+              <tr className="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800">
+                <th className="p-3.5 font-bold">Feature</th>
+                <th className="p-3.5 font-bold">Subclass 189 (Independent)</th>
+                <th className="p-3.5 font-bold">Subclass 190 (Nominated)</th>
+                <th className="p-3.5 font-bold">Subclass 491 (Regional)</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-600 dark:text-zinc-400">
+            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-650 dark:text-zinc-400">
+              <tr>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Visa Status</td>
+                <td className="p-3.5">Direct Permanent Residency (PR)</td>
+                <td className="p-3.5">Direct Permanent Residency (PR)</td>
+                <td className="p-3.5">5-Year Provisional (Path to PR via 191)</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Bonus Points</td>
+                <td className="p-3.5 font-bold text-zinc-700 dark:text-zinc-300">0 Points</td>
+                <td className="p-3.5 font-bold text-teal-600 dark:text-teal-400">+5 Points</td>
+                <td className="p-3.5 font-bold text-teal-600 dark:text-teal-400">+15 Points</td>
+              </tr>
+              <tr>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Sponsorship Needed</td>
+                <td className="p-3.5">None</td>
+                <td className="p-3.5">State / Territory Government</td>
+                <td className="p-3.5">State Government or Eligible Relative</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Geographic Freedom</td>
+                <td className="p-3.5">Anywhere in Australia</td>
+                <td className="p-3.5">2-Year commitment to nominating state</td>
+                <td className="p-3.5">Designated Regional Areas only</td>
+              </tr>
+              <tr>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Eligible Occupation Lists</td>
+                <td className="p-3.5">MLTSSL only</td>
+                <td className="p-3.5">MLTSSL & STSOL (State lists)</td>
+                <td className="p-3.5">MLTSSL, STSOL & ROL (Regional lists)</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Deep-Dive Details</td>
+                <td className="p-3.5">
+                  <Link href="/subclass-189" className="text-teal-600 dark:text-teal-400 font-bold hover:underline">
+                    View 189 Details →
+                  </Link>
+                </td>
+                <td className="p-3.5">
+                  <Link href="/subclass-190" className="text-teal-600 dark:text-teal-400 font-bold hover:underline">
+                    View 190 Details →
+                  </Link>
+                </td>
+                <td className="p-3.5">
+                  <Link href="/subclass-491" className="text-teal-600 dark:text-teal-400 font-bold hover:underline">
+                    View 491 Details →
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* SECTION 2: Official Points Breakdown Table (Schedule 6D) */}
+      <div>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight mb-6">
+          Schedule 6D General Points Allocation Guide
+        </h2>
+        <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
+          <table className="w-full text-left border-collapse text-xs md:text-sm">
+            <thead>
+              <tr className="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800">
+                <th className="p-3.5 font-bold">Category</th>
+                <th className="p-3.5 font-bold">Criteria & Description</th>
+                <th className="p-3.5 font-bold text-right">Points</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-650 dark:text-zinc-400">
               {/* Age */}
               <tr>
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="5">Age</td>
-                <td className="p-4">18 to 24 years</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">25</td>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="5">Age</td>
+                <td className="p-3.5">18 to 24 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">25</td>
               </tr>
               <tr>
-                <td className="p-4">25 to 32 years</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">30</td>
+                <td className="p-3.5">25 to 32 years (Prime points bracket)</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">30</td>
               </tr>
               <tr>
-                <td className="p-4">33 to 39 years</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">25</td>
+                <td className="p-3.5">33 to 39 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">25</td>
               </tr>
               <tr>
-                <td className="p-4">40 to 44 years</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">15</td>
+                <td className="p-3.5">40 to 44 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">15</td>
               </tr>
               <tr>
-                <td className="p-4">45 years and over</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">0</td>
+                <td className="p-3.5">45 years and over (Ineligible for points-tested visas)</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">0</td>
               </tr>
 
               {/* English */}
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="3">English Language Ability</td>
-                <td className="p-4">Competent English (IELTS 6.0 / PTE 50 equivalent)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">0</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="3">English Language</td>
+                <td className="p-3.5">Competent English (IELTS 6.0 / PTE 50 / CELPIP 7)</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">0</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">Proficient English (IELTS 7.0 / PTE 65 equivalent)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">Proficient English (IELTS 7.0 / PTE 65 / CELPIP 8)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">10</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">Superior English (IELTS 8.0 / PTE 79 equivalent)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">20</td>
-              </tr>
-
-              {/* Overseas Experience */}
-              <tr>
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="4">Overseas Work Experience</td>
-                <td className="p-4">Less than 3 years</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">0</td>
-              </tr>
-              <tr>
-                <td className="p-4">3 to 4 years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
-              </tr>
-              <tr>
-                <td className="p-4">5 to 7 years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
-              </tr>
-              <tr>
-                <td className="p-4">8+ years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">15</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">Superior English (IELTS 8.0 / PTE 79 / CELPIP 9)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">20</td>
               </tr>
 
-              {/* Australian Experience */}
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="5">Australian Work Experience</td>
-                <td className="p-4">Less than 1 year</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">0</td>
+              {/* Work Experience */}
+              <tr>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="4">Overseas Experience (Past 10 Years)</td>
+                <td className="p-3.5">Less than 3 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">0</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">1 to 2 years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
+              <tr>
+                <td className="p-3.5">3 to 4 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">5</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">3 to 4 years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+              <tr>
+                <td className="p-3.5">5 to 7 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">10</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">5 to 7 years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">15</td>
+              <tr>
+                <td className="p-3.5">8+ years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">15</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">8+ years (within the last 10 years)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">20</td>
+
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="4">Australian Experience (Past 10 Years)</td>
+                <td className="p-3.5">1 to 2 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">5</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">3 to 4 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">10</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">5 to 7 years</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">15</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">8+ years (Combined work experience capped at 20 points max)</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">20</td>
               </tr>
 
               {/* Education */}
               <tr>
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="4">Educational Qualification</td>
-                <td className="p-4">Doctorate (PhD) from an Australian or recognized overseas university</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">20</td>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="3">Educational Qualification</td>
+                <td className="p-3.5">Doctorate (PhD) from Australian or recognized overseas university</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">20</td>
               </tr>
               <tr>
-                <td className="p-4">Bachelor degree or higher (Master's) from AU or recognized institution</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">15</td>
+                <td className="p-3.5">Bachelor degree or Master&apos;s degree</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">15</td>
               </tr>
               <tr>
-                <td className="p-4">Trade qualification or diploma completed in Australia</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
-              </tr>
-              <tr>
-                <td className="p-4">An award or qualification recognized by the skills assessing authority</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+                <td className="p-3.5">Trade qualification, Australian Diploma, or assessed qualification</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">10</td>
               </tr>
 
-              {/* Partner Skills */}
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="4">Partner Skills</td>
-                <td className="p-4">Single or partner is an Australian Citizen / Permanent Resident</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+              {/* Partner Points */}
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="3">Partner Skills</td>
+                <td className="p-3.5">Single applicant OR spouse/partner is Australian Citizen / PR</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">10</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">Partner under 45, Competent English, and suitable Skills Assessment</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">Partner under 45, Competent English, positive Skills Assessment</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">10</td>
               </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">Partner has Competent English only (No Skills Assessment)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
-              </tr>
-              <tr className="bg-zinc-50/30 dark:bg-zinc-900/10">
-                <td className="p-4">Partner is neither competent in English nor assessed</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">0</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
+                <td className="p-3.5">Partner has Competent English only (No Skills Assessment)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">5</td>
               </tr>
 
-              {/* Specialist Qualifications */}
+              {/* Bonuses */}
               <tr>
-                <td className="p-4 font-semibold text-zinc-900 dark:text-white" rowSpan="5">Additional Bonus Options</td>
-                <td className="p-4">Specialist STEM Degree (Master's by research/PhD in STEM in AU)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">10</td>
+                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white" rowSpan="5">Specialist & Community Bonuses</td>
+                <td className="p-3.5">Specialist STEM Degree (Master&apos;s by research or PhD in Australia)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">10</td>
               </tr>
               <tr>
-                <td className="p-4">Australian Study Requirement (Min 2 academic years study)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
+                <td className="p-3.5">Australian Study Requirement (Min 2 academic years CRICOS)</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">5</td>
               </tr>
               <tr>
-                <td className="p-4">Study in Regional Australia (Meets AU study requirement)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
+                <td className="p-3.5">Designated Regional Australia Study</td>
+                <td className="p-3.5 text-right font-bold text-zinc-900 dark:text-white">5</td>
               </tr>
               <tr>
-                <td className="p-4">Credentialled Community Language (NAATI CCL Certified)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
+                <td className="p-3.5">Credentialled Community Language (NAATI CCL Certified)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">5</td>
               </tr>
               <tr>
-                <td className="p-4">Professional Year in Australia (Accounting, IT, or Engineering)</td>
-                <td className="p-4 text-right font-bold text-zinc-900 dark:text-white">5</td>
+                <td className="p-3.5">Professional Year Program in Australia (IT, Engineering, Accounting)</td>
+                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">5</td>
               </tr>
             </tbody>
           </table>
@@ -209,90 +259,23 @@ export default function SeoContentSection() {
 
       {/* SECTION 3: Frequently Asked Questions */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-6">
-          Frequently Asked Questions
+        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight mb-6">
+          Frequently Asked Questions About Australia PR Points
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              How many points do I need for PR Australia?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              The minimum pass mark to submit an Expression of Interest (EOI) for Australia Skilled Independent (Subclass 189), State Nominated (Subclass 190), or Regional (Subclass 491) visas is 65 points. However, competitive invitation rounds often require higher scores depending on your nominated occupation.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Can I get PR with 70 points in Australia?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Yes, 70 points is above the minimum 65-point requirement. While Subclass 189 federal invitations can be competitive, 70 points makes you eligible for Subclass 190 state nominations (adding +5 points) or Subclass 491 regional visas (adding +15 points).
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Can I get PR with 60 points?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              No, you cannot directly lodge an Expression of Interest for Subclass 189 or 190 with 60 points, as the mandatory minimum threshold is 65 points. However, with 60 base points, you can apply for a Subclass 491 Regional Provisional Visa, which automatically awards you +15 bonus points, bringing your total score to 75.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Can I apply 491 with 50 points?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Yes! The Subclass 491 (Skilled Work Regional) visa provides 15 bonus nomination points. If you have 50 base points, adding the 15 regional nomination points brings your total to 65 points, meeting the required threshold.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Is 75 points good for Australia PR?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Yes, 75 points is considered a solid score for Australian permanent residency, particularly for state-nominated (Subclass 190) and regional (Subclass 491) visas.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Which city is easy to get PR in Australia?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Designated regional areas like Adelaide (South Australia), Perth (Western Australia), Hobart (Tasmania), and regional NSW/QLD offer easier pathways to PR via Subclass 491 and 190 state nominations due to lower point cutoffs.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              What is the DIBP points test or SkillSelect system?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              The Department of Home Affairs (formerly DIBP) uses the SkillSelect points test to assess candidates for skilled migration. Points are awarded based on age, English capability, work experience, qualifications, and state/regional sponsorship. You must score at least 65 points to submit an EOI.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              How do PTE, IELTS, or CELPIP scores calculate points for Australian PR?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              English proficiency is a key points driver. Competent English (IELTS 6.0 / PTE 50) awards 0 points. Proficient English (IELTS 7.0 / PTE 65 / CELPIP 7) awards 10 points. Superior English (IELTS 8.0 / PTE 79 / CELPIP 9) awards 20 points, significantly improving your invitation chances.
-            </p>
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 md:col-span-2">
-            <h3 className="text-sky-400 font-semibold mb-2">
-              Is it easy to get PR in Australia?
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Getting PR in Australia depends on your ANZSCO occupation, age, English proficiency, and willingness to live in regional areas. Maximizing points through Superior English (PTE 79+ / IELTS 8.0) and NAATI CCL accreditation significantly improves your invitation chances.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {homepageFaqs.map((faq, idx) => (
+            <div
+              key={idx}
+              className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs"
+            >
+              <h3 className="text-teal-700 dark:text-teal-400 font-semibold mb-2 text-sm md:text-base">
+                {faq.question}
+              </h3>
+              <p className="text-zinc-650 dark:text-zinc-400 text-xs md:text-sm leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
