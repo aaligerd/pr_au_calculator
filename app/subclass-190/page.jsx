@@ -6,21 +6,33 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import Footer from "../../components/Footer";
 
 export const metadata = {
-  title: "Subclass 190 Points Calculator 2026 | Skilled Nominated Visa Australia",
+  title: "Subclass 190 Points Calculator (2026) | Skilled Nominated Visa (+5 Pts)",
   description:
-    "Calculate your points for the Skilled Nominated (Subclass 190) visa. State government nomination automatically grants an extra +5 points. Check NSW, VIC, WA, QLD, and SA state criteria.",
+    "Calculate your Subclass 190 points with automatic +5 state nomination points. Check state nomination criteria for NSW, VIC, QLD, WA, SA, and SkillSelect requirements.",
   alternates: {
     canonical: "https://ausprcalculator.com/subclass-190",
   },
   openGraph: {
-    title: "Subclass 190 Points Calculator 2026 (+5 Points)",
+    title: "Subclass 190 Points Calculator (2026) | Skilled Nominated Visa (+5 Pts)",
     description:
-      "Determine your points eligibility for the Skilled Nominated (Subclass 190) visa including state nomination bonus points.",
+      "Calculate your Subclass 190 points with automatic +5 state nomination points. Check state nomination criteria for NSW, VIC, QLD, WA, SA, and SkillSelect requirements.",
     url: "https://ausprcalculator.com/subclass-190",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Subclass 190 Points Calculator (2026) | Skilled Nominated Visa (+5 Pts)",
+    description:
+      "Calculate your Subclass 190 points with automatic +5 state nomination points. Check state nomination criteria for NSW, VIC, QLD, WA, SA, and SkillSelect requirements.",
   },
 };
 
 export default function Subclass190() {
+  const breadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: "Subclass 190 Calculator", href: "/subclass-190" },
+  ];
+
   return (
     <main className="flex-1 min-h-screen">
       {/* Page-Specific Schema Markup */}
@@ -28,17 +40,13 @@ export default function Subclass190() {
         faqs={subclass190Faqs}
         pageUrl="https://ausprcalculator.com/subclass-190"
         appName="Subclass 190 Points Calculator"
-        appDescription="Calculate your points for the Australian Skilled Nominated (Subclass 190) visa, including automatic +5 state nomination bonus points."
+        appDescription="Calculate your Subclass 190 points with automatic +5 state nomination points. Check state nomination criteria for NSW, VIC, QLD, WA, SA, and SkillSelect requirements."
+        breadcrumbs={breadcrumbs}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Breadcrumb Navigation */}
-        <Breadcrumbs
-          items={[
-            { name: "Home", href: "/" },
-            { name: "Subclass 190 Calculator", href: "/subclass-190" },
-          ]}
-        />
+        <Breadcrumbs items={breadcrumbs} renderSchema={false} />
 
         {/* Header Block */}
         <header className="text-center max-w-3xl mx-auto mb-10 md:mb-12 space-y-4">
@@ -55,10 +63,10 @@ export default function Subclass190() {
           </p>
         </header>
 
-        {/* Calculator Engine Preset to 190 */}
+        {/* Calculator Engine Preset to Subclass 190 */}
         <PRCalculatorEngine initialSubclass="190" />
 
-        {/* Unique Subclass 190 Content Guide */}
+        {/* Server-Rendered Subclass 190 Content Guide */}
         <Subclass190Content />
       </div>
 

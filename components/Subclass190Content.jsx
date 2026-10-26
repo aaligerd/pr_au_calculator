@@ -1,188 +1,169 @@
 import React from "react";
 import Link from "next/link";
+import FaqAccordion from "./FaqAccordion";
+import GsmGuideSection from "./GsmGuideSection";
 
 export const subclass190Faqs = [
   {
     question: "How many bonus points does Subclass 190 state nomination provide?",
     answer:
-      "Securing nomination by an Australian State or Territory Government automatically awards an extra 5 points to your SkillSelect score. For example, if you have 65 personal base points, state nomination increases your total score to 70 points.",
+      "Securing nomination by an Australian State or Territory Government automatically awards an extra 5 points to your SkillSelect score. For example, if you have 60 personal base points, state nomination increases your total score to exactly 65 points, meeting the statutory threshold.",
   },
   {
-    question: "Is Subclass 190 a permanent residency visa?",
+    question: "Is Subclass 190 an immediate permanent residency (PR) visa?",
     answer:
-      "Yes. The Skilled Nominated (Subclass 190) is a direct Permanent Resident (PR) visa from the day it is granted. You receive full work rights across Australia and access to Medicare.",
+      "Yes. The Skilled Nominated (Subclass 190) is a direct Permanent Resident (PR) visa from the day it is granted. You receive full work rights across Australia, access to Medicare, and a pathway to Australian citizenship after fulfilling standard residence requirements.",
   },
   {
-    question: "What is the 2-year commitment for Subclass 190 visa holders?",
+    question: "What is the difference between Subclass 189 and Subclass 190?",
     answer:
-      "When you accept a state nomination for Subclass 190, you sign a moral and statutory declaration committing to live and work in your nominating state or territory for at least the first two years after your visa grant (or after arrival if applying from offshore).",
-  },
-  {
-    question: "What is the difference between a SkillSelect EOI and a State ROI?",
-    answer:
-      "A federal Expression of Interest (EOI) is submitted in Home Affairs' SkillSelect system. Several states (such as Victoria and ACT) also require a separate Registration of Interest (ROI) or state matrix application submitted directly through the state's migration portal to be considered for nomination.",
+      "Subclass 189 is an independent permanent visa with 0 bonus points and no geographic restrictions. Subclass 190 requires nomination by a specific Australian state or territory government, which grants +5 points. In exchange, Subclass 190 holders sign a moral commitment to live and work in the nominating state for the first 2 years.",
   },
   {
     question: "Can I apply for Subclass 190 with 60 base points?",
     answer:
-      "Yes! Because state nomination provides an automatic +5 points, having 60 points on your own allows you to meet the mandatory 65-point threshold once state nomination is granted.",
+      "Yes. Because state nomination grants an automatic +5 points, candidates with 60 base points (derived from age, English, education, and work experience) achieve the mandatory 65 points once the state government issues the nomination.",
   },
   {
-    question: "Which states are currently open for Subclass 190 nominations?",
+    question: "How long is my English language test valid for Subclass 190?",
     answer:
-      "All Australian states and territories (NSW, VIC, QLD, WA, SA, TAS, ACT, NT) operate Subclass 190 nomination programs under annual allocation quotas. Each jurisdiction publishes specific occupation priority lists, residency requirements, and onshore/offshore criteria.",
+      "For Subclass 190, English test results (PTE Academic, IELTS, Cambridge C1, or CELPIP) are valid for 3 years immediately before the date of invitation by the Department of Home Affairs. Note that some individual states may have specific minimum score criteria (e.g. demanding Proficient or Superior English for certain occupation groups).",
+  },
+  {
+    question: "What is the mandatory 2-year commitment for Subclass 190 visa holders?",
+    answer:
+      "When accepting a state nomination for Subclass 190, you sign a statutory and moral declaration committing to live and work in your nominating state or territory for at least your first 2 years after visa grant (or after initial arrival if applying from offshore). While Australian permanent residents enjoy constitutional freedom of movement, breaching this commitment without compelling justification can impact state character assessments and future citizenship or sponsorship applications.",
+  },
+  {
+    question: "What is the difference between a SkillSelect EOI and a State Registration of Interest (ROI)?",
+    answer:
+      "A federal Expression of Interest (EOI) is submitted into Home Affairs' SkillSelect portal. Several jurisdictions (such as Victoria's 'Live in Melbourne' and the ACT's Canberra Matrix) also require candidates to submit a separate, state-specific Registration of Interest (ROI) or matrix application to be considered for invitation.",
+  },
+  {
+    question: "Which Australian states and territories offer Subclass 190 nominations?",
+    answer:
+      "All eight Australian jurisdictions participate in the Subclass 190 program: New South Wales (NSW), Victoria (VIC), Queensland (QLD), Western Australia (WA), South Australia (SA), Tasmania (TAS), the Australian Capital Territory (ACT), and the Northern Territory (NT). Each jurisdiction publishes tailored occupation lists, minimum onshore experience requirements, and offshore pathways.",
   },
 ];
 
 export default function Subclass190Content() {
   return (
-    <section className="mt-16 space-y-12 border-t border-zinc-200 dark:border-zinc-800 pt-16">
+    <section className="mt-16 space-y-16 border-t border-zinc-200 dark:border-zinc-800 pt-16">
       {/* SECTION 1: Deep Dive Overview */}
       <article className="prose prose-zinc dark:prose-invert max-w-none">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight mb-4">
-          Complete Guide to Skilled Nominated (Subclass 190) Points
-        </h2>
-        <div className="text-zinc-650 dark:text-zinc-400 space-y-4 text-sm md:text-base leading-relaxed">
-          <p>
-            The <strong>Skilled Nominated visa (Subclass 190)</strong> is an Australian permanent resident visa designed for skilled workers 
-            who are nominated by an Australian state or territory government. 
-            Because each state has unique economic priorities and skill shortages, gaining state nomination automatically grants an additional 
-            <strong> 5 points</strong> towards your overall immigration score.
-          </p>
-          <p>
-            Subclass 190 is often the best pathway for applicants who score between <strong>65 and 80 points</strong> and find the federal 
-            Subclass 189 invitation cut-offs too high, or whose occupations are only listed on the Short-term Skilled Occupation List (STSOL).
-          </p>
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border border-teal-100/50 dark:border-teal-900/30 mb-3">
+            State Nominated PR Guide
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+            Complete Guide to Skilled Nominated (Subclass 190) Points
+          </h2>
+          <div className="text-zinc-650 dark:text-zinc-400 space-y-4 text-sm md:text-base leading-relaxed mt-4">
+            <p>
+              The <strong>Skilled Nominated visa (Subclass 190)</strong> is an Australian permanent resident
+              visa tailored for skilled professionals who receive nomination from an Australian state
+              or territory government. Because each state has unique economic priorities and targeted
+              labor shortages, gaining state nomination awards an automatic <strong>+5 bonus points</strong>{" "}
+              towards your overall immigration score.
+            </p>
+            <p>
+              Subclass 190 represents the premier permanent residency pathway for candidates who score
+              between <strong>65 and 80 points</strong>, where federal Subclass 189 invitation cut-offs
+              may be out of reach, or whose ANZSCO occupation appears on the Short-term Skilled
+              Occupation List (STSOL) rather than the MLTSSL.
+            </p>
+          </div>
         </div>
       </article>
 
-      {/* SECTION 2: State Nomination Programs Overview */}
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-lg">
-            🏛️
+      {/* SECTION 2: State Nomination Matrix */}
+      <div>
+        <div className="max-w-3xl mb-6">
+          <div className="inline-flex items-center gap-2 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border border-teal-100/50 dark:border-teal-900/30 mb-3">
+            Jurisdiction Breakdown
           </div>
-          <div>
-            <h3 className="text-lg md:text-xl font-bold text-zinc-950 dark:text-white">
-              Australian State & Territory Nomination Overview
-            </h3>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400">
-              Key nomination criteria across jurisdictions
-            </p>
-          </div>
+          <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white">
+            State &amp; Territory Subclass 190 Nomination Criteria (2026)
+          </h3>
+          <p className="text-zinc-650 dark:text-zinc-400 text-sm mt-2 leading-relaxed">
+            Every Australian state operates its own independent nomination selection criteria,
+            allocations, and submission processes:
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">NSW (New South Wales)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Sydney & Regional NSW</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Focuses on target sectors: Tech, Health, Education, Infrastructure, and Agriculture. Invitation-only based on high EOI scores.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Victoria (VIC)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Melbourne & Regional VIC</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Requires a Registration of Interest (ROI). Strong priority for onshore residents working in renewable energy, digital tech, and health.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Western Australia (WA)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Perth & Regional WA</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Separate Graduate and General streams (Schedule 1 & 2). Requires an employment contract in WA for certain categories.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">South Australia (SA)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Adelaide & Regional SA</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Streams for SA Graduates, Working in SA, and Highly Skilled / Offshore talent with expansive occupation lists.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Tasmania (TAS)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Hobart & Regional TAS</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Uses Migration Tasmania Gateway. Favorable pathways for Tasmanian graduates and skilled employees with gold/orange pass priority.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Queensland (QLD)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Brisbane & Regional QLD</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Managed by Migration Queensland. Requires onshore employment proof or specialized offshore criteria with point benchmarks.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">ACT (Canberra)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Australian Capital Territory</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Uses the proprietary ACT Canberra Matrix point system to rank candidates before inviting them to apply for territory nomination.
-            </p>
-          </div>
-
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Northern Territory (NT)</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-2">Darwin & Regional NT</p>
-            <p className="text-zinc-650 dark:text-zinc-400 text-xs">
-              Tailored for NT graduates and skilled residents with 6+ months full-time local employment in an eligible occupation.
-            </p>
-          </div>
+        <div className="overflow-x-auto rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xs bg-white dark:bg-zinc-900">
+          <table className="w-full text-left border-collapse text-xs md:text-sm">
+            <thead>
+              <tr className="bg-zinc-50 dark:bg-zinc-950/60 text-zinc-900 dark:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800">
+                <th className="p-4 font-bold">State / Territory</th>
+                <th className="p-4 font-bold">Nomination Portal Process</th>
+                <th className="p-4 font-bold">Targeted Priority Sectors</th>
+                <th className="p-4 font-bold">Key Eligibility Nuances</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-650 dark:text-zinc-400">
+              <tr>
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">New South Wales (NSW)</td>
+                <td className="p-4">Direct invitation from SkillSelect EOI; no separate ROI fee</td>
+                <td className="p-4">Health, Education, ICT, Engineering, Infrastructure</td>
+                <td className="p-4">Prioritizes onshore NSW residents; requires residency of 6+ months for certain streams</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-950/30">
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">Victoria (VIC)</td>
+                <td className="p-4">Mandatory Registration of Interest (ROI) via Live in Melbourne</td>
+                <td className="p-4">Clean Economy, Health, Advanced Manufacturing, Tech</td>
+                <td className="p-4">Annual earnings and relevant onshore employment strengthen ROI ranking</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">Western Australia (WA)</td>
+                <td className="p-4">Invitation rounds based on WASMOL Schedule 1 &amp; 2 and Graduate list</td>
+                <td className="p-4">Mining, Construction, Healthcare, Agriculture, Engineering</td>
+                <td className="p-4">Requires employment contract of at least 6 months in WA for General Stream</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-950/30">
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">Queensland (QLD)</td>
+                <td className="p-4">Migration Queensland ROI via portal when invitation rounds open</td>
+                <td className="p-4">Tourism, Green Energy, Biomedicine, Trades, Agribusiness</td>
+                <td className="p-4">Requires 75+ points for certain IT streams and 3+ months onshore QLD work</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">South Australia (SA)</td>
+                <td className="p-4">Skilled &amp; Business Migration portal application</td>
+                <td className="p-4">Defense, Space, Health, Renewable Tech, Hi-tech Trades</td>
+                <td className="p-4">Generous pathways for South Australian international university graduates</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-950/30">
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">ACT (Canberra)</td>
+                <td className="p-4">Canberra Matrix points-tested ranking system</td>
+                <td className="p-4">Cyber Security, Public Sector, Allied Health, Construction</td>
+                <td className="p-4">Ranks applicants on ACT-specific Matrix points in addition to federal points</td>
+              </tr>
+              <tr>
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">Tasmania (TAS)</td>
+                <td className="p-4">Migration Tasmania Gateway ROI and Orange/Green pass system</td>
+                <td className="p-4">Building &amp; Construction, Health, Education, Hospitality</td>
+                <td className="p-4">Favors long-term Tasmanian residents and Tasmanian university graduates</td>
+              </tr>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-950/30">
+                <td className="p-4 font-bold text-zinc-900 dark:text-white">Northern Territory (NT)</td>
+                <td className="p-4">Direct application to Northern Territory Government</td>
+                <td className="p-4">Critical Infrastructure, Regional Health, Primary Industries</td>
+                <td className="p-4">Requires demonstration of settlement commitment and financial capacity</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      {/* SECTION 3: Step-by-Step Application Process */}
-      <div>
-        <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white mb-4">
-          Step-by-Step Subclass 190 Nomination Roadmap
-        </h3>
-        <ol className="space-y-4 text-xs md:text-sm text-zinc-650 dark:text-zinc-400 list-decimal pl-5">
-          <li>
-            <strong>Skills Assessment & English Test:</strong> Obtain a positive skills assessment in an eligible occupation (MLTSSL or STSOL) and achieve at least Competent English (minimum IELTS 6.0 / PTE 50).
-          </li>
-          <li>
-            <strong>Submit SkillSelect EOI:</strong> Lodge your Expression of Interest selecting Subclass 190 and designating your chosen state(s) or &quot;Any State&quot;.
-          </li>
-          <li>
-            <strong>Lodge State Registration of Interest (ROI):</strong> If required by the state (e.g. Victoria or ACT), register on their official state portal.
-          </li>
-          <li>
-            <strong>Receive State Nomination Invitation:</strong> Once selected, submit documentation and state nomination fee to the state government.
-          </li>
-          <li>
-            <strong>Receive Federal ITA & Lodge Visa:</strong> Once the state approves nomination, Home Affairs issues an automatic Invitation to Apply (ITA). You have 60 days to lodge your final PR visa application.
-          </li>
-        </ol>
-      </div>
+      {/* SECTION 3: Strategic Step-by-Step GSM Guide */}
+      <GsmGuideSection subclassContext="Subclass 190" />
 
-      {/* SECTION 4: Subclass 190 FAQs */}
+      {/* SECTION 4: Subclass 190 Targeted FAQs */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white mb-6">
-          Frequently Asked Questions About Subclass 190
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {subclass190Faqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs"
-            >
-              <h4 className="text-teal-700 dark:text-teal-400 font-semibold mb-2 text-sm md:text-base">
-                {faq.question}
-              </h4>
-              <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FaqAccordion
+          faqs={subclass190Faqs}
+          title="Frequently Asked Questions: Skilled Nominated (Subclass 190)"
+        />
       </div>
     </section>
   );

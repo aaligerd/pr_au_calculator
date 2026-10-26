@@ -22,19 +22,19 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    default: "Australia PR Points Calculator | Skilled Migration Estimator 2026",
-    template: "%s | ausprcalculator.com",
+    default: "Australia PR Points Calculator (2026) | Check SkillSelect Eligibility",
+    template: "%s",
   },
   description:
-    "Calculate your points for Australia Subclass 189, 190, and 491 visas instantly. Updated with official Department of Home Affairs SkillSelect criteria.",
+    "Calculate your Australia PR points for Subclasses 189, 190, and 491 with our accurate 2026 points calculator. Instant score breakdown based on official Home Affairs criteria.",
   metadataBase: new URL("https://ausprcalculator.com"),
   alternates: {
     canonical: "https://ausprcalculator.com",
   },
   openGraph: {
-    title: "Australia PR Points Calculator",
+    title: "Australia PR Points Calculator (2026) | Check SkillSelect Eligibility",
     description:
-      "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
+      "Calculate your Australia PR points for Subclasses 189, 190, and 491 with our accurate 2026 points calculator. Instant score breakdown based on official Home Affairs criteria.",
     url: "https://ausprcalculator.com",
     siteName: "Australia PR Points Calculator",
     images: [
@@ -50,9 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Australia PR Points Calculator",
+    title: "Australia PR Points Calculator (2026) | Check SkillSelect Eligibility",
     description:
-      "Calculate your skilled migration points for Subclass 189, 190 & 491 visas instantly.",
+      "Calculate your Australia PR points for Subclasses 189, 190, and 491 with our accurate 2026 points calculator. Instant score breakdown based on official Home Affairs criteria.",
     images: [
       "https://d1yr7ysliv0ys4.cloudfront.net/site-content/aus_pr_calculator.webp",
     ],

@@ -1,189 +1,214 @@
 import React from "react";
 import Link from "next/link";
+import FaqAccordion from "./FaqAccordion";
+import GsmGuideSection from "./GsmGuideSection";
 
 export const subclass189Faqs = [
   {
-    question: "What is the minimum points score required for Subclass 189?",
+    question: "What is the minimum points score required for Subclass 189 in 2026?",
     answer:
-      "The statutory minimum pass mark to lodge an Expression of Interest (EOI) for the Skilled Independent (Subclass 189) visa is 65 points. However, because Subclass 189 is ranked purely on points and occupation demand, invitations in high-competition fields (such as Software Engineering, Accounting, and ICT) frequently require 85 to 95+ points.",
+      "The statutory minimum pass mark to lodge an Expression of Interest (EOI) for the Skilled Independent (Subclass 189) visa is 65 points. However, because Subclass 189 is ranked purely on points and occupation demand without any state nomination buffer, invitations in competitive fields (such as Software Engineering, Developer Programmer, and Accounting) frequently require 85 to 95+ points.",
   },
   {
     question: "Is 70 or 75 points enough to get an invitation for Subclass 189?",
     answer:
-      "For priority occupations such as Registered Nurses, Secondary School Teachers, and designated healthcare professionals, 65 to 75 points is frequently sufficient for an invitation. For popular IT and engineering roles, 70–75 points is usually insufficient for Subclass 189 alone; applicants in these sectors are advised to pursue Subclass 190 (state nomination +5 pts) or Subclass 491 (regional +15 pts) to boost their score.",
+      "For designated priority sectors (such as Registered Nurses, Secondary School Teachers, Early Childhood Teachers, and specific Medical Specialists), 65 to 75 points is frequently sufficient for an invitation in federal invitation rounds. For popular IT and engineering roles, 70–75 points is usually insufficient for Subclass 189 alone; applicants in these sectors are advised to lodge parallel EOIs for Subclass 190 (state nomination +5 pts) and Subclass 491 (regional +15 pts).",
   },
   {
-    question: "Which English tests are accepted for Subclass 189 points, including CELPIP and PTE?",
+    question: "Can I lodge an EOI for Subclass 189 with exactly 65 points?",
     answer:
-      "The Department of Home Affairs accepts PTE Academic, IELTS, Cambridge (C1 Advanced), TOEFL iBT, and newly accredited tests such as CELPIP General. Scoring Proficient English (IELTS 7.0 / PTE 65 / CELPIP 7 each band) yields 10 points. Scoring Superior English (IELTS 8.0 / PTE 79 / CELPIP 9 each band) yields 20 points.",
+      "Yes. Any applicant with a positive skills assessment for an occupation on the MLTSSL, Competent English, and at least 65 points can legally lodge an EOI in SkillSelect. If federal quotas expand or priority sector invitations are issued, candidates with 65 points can receive an Invitation to Apply (ITA).",
   },
   {
-    question: "Does Subclass 189 require state nomination or employer sponsorship?",
+    question: "How long is my English language test valid for Subclass 189?",
     answer:
-      "No. The Subclass 189 is a purely points-tested independent visa. You do not need an Australian employer, state government nomination, or family sponsor. Once granted, you receive immediate Australian Permanent Residency with full freedom to live and work anywhere across Australia.",
+      "For the Subclass 189 visa, English test results (PTE Academic, IELTS, Cambridge C1, or CELPIP) are valid for 3 years immediately preceding the date of invitation. Even if testing authorities state a 2-year validity on the scorecard, the Department of Home Affairs honors the 3-year statutory standard for GSM.",
   },
   {
-    question: "Which occupations are eligible for the Subclass 189 visa?",
+    question: "Does the Subclass 189 visa require state nomination or employer sponsorship?",
     answer:
-      "Only occupations listed on the Medium and Long-term Strategic Skills List (MLTSSL) are eligible for Subclass 189. Your occupation must have a positive skills assessment from the designated assessing body (such as ACS for IT, Engineers Australia for engineers, or VETASSESS for general professionals).",
+      "No. The Subclass 189 is an independent, points-tested permanent residency visa. You do not require an Australian employer, state or territory government nomination, or family sponsor. Once granted, you receive immediate Australian Permanent Residency with complete freedom to live, work, and study in any Australian state or city.",
+  },
+  {
+    question: "Which occupation list is eligible for the Subclass 189 visa?",
+    answer:
+      "Only occupations listed on the federal Medium and Long-term Strategic Skills List (MLTSSL) are eligible for Subclass 189. Occupations appearing exclusively on the Short-term Skilled Occupation List (STSOL) or Regional Occupation List (ROL) cannot apply for Subclass 189, though they may qualify for Subclass 190 or 491.",
   },
   {
     question: "How often are federal Subclass 189 invitation rounds held?",
     answer:
-      "The Department of Home Affairs conducts invitation rounds for Subclass 189 periodically throughout the migration program year (typically quarterly or as determined by federal labor demand), based on SkillSelect EOI rankings.",
+      "The Department of Home Affairs conducts invitation rounds for the Subclass 189 visa periodically throughout the migration program year. While historically conducted monthly, rounds are now typically conducted quarterly or as determined by federal labor demand and ministerial directions.",
+  },
+  {
+    question: "Can offshore applicants receive an invitation for Subclass 189?",
+    answer:
+      "Yes. The Department of Home Affairs invites both onshore (applicants living in Australia on valid visas) and offshore candidates for Subclass 189 based strictly on points ranking and occupation ceilings. In recent migration program years, substantial allocations have been granted to offshore healthcare and education professionals.",
   },
 ];
 
 export default function Subclass189Content() {
   return (
-    <section className="mt-16 space-y-12 border-t border-zinc-200 dark:border-zinc-800 pt-16">
+    <section className="mt-16 space-y-16 border-t border-zinc-200 dark:border-zinc-800 pt-16">
       {/* SECTION 1: Deep Dive Overview */}
       <article className="prose prose-zinc dark:prose-invert max-w-none">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight mb-4">
-          Complete Guide to Skilled Independent (Subclass 189) Points
-        </h2>
-        <div className="text-zinc-650 dark:text-zinc-400 space-y-4 text-sm md:text-base leading-relaxed">
-          <p>
-            The <strong>Skilled Independent visa (Subclass 189)</strong> is widely considered the gold standard of Australian permanent residency. 
-            Unlike state-sponsored or employer-nominated pathways, Subclass 189 grants you unconditional permanent residency without geographic restrictions, 
-            meaning you can live, work, and study anywhere in Sydney, Melbourne, Brisbane, or regional Australia from day one.
-          </p>
-          <p>
-            Because Subclass 189 does not provide bonus nomination points, your rank in the federal <strong>SkillSelect</strong> pool depends solely 
-            on your personal attributes: your age, English proficiency, qualified work experience, education level, and partner qualifications.
-          </p>
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border border-teal-100/50 dark:border-teal-900/30 mb-3">
+            Skilled Independent Visa Guide
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+            Complete Guide to Skilled Independent (Subclass 189) Points
+          </h2>
+          <div className="text-zinc-650 dark:text-zinc-400 space-y-4 text-sm md:text-base leading-relaxed mt-4">
+            <p>
+              The <strong>Skilled Independent visa (Subclass 189)</strong> is widely considered the
+              gold standard of Australian immigration. Unlike state-sponsored or employer-tied visas,
+              Subclass 189 grants you unconditional Australian Permanent Residency from day one. You
+              have full freedom to reside, work, and study anywhere in Sydney, Melbourne, Brisbane,
+              or regional Australia without geographic obligations.
+            </p>
+            <p>
+              Because Subclass 189 provides <strong>0 bonus nomination points</strong>, your position
+              in the federal <strong>SkillSelect</strong> pool is determined strictly by your personal
+              human capital attributes: age bracket, English test scores (IELTS/PTE/CELPIP),
+              qualified work experience, degree credentials, and partner qualifications.
+            </p>
+          </div>
         </div>
       </article>
 
-      {/* SECTION 2: Invitation Cut-offs & Strategy */}
-      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold text-lg">
+      {/* SECTION 2: Real-World Cut-off Benchmarks */}
+      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 space-y-6 shadow-xs">
+        <div className="flex items-center gap-3 pb-4 border-b border-zinc-150 dark:border-zinc-800">
+          <div className="w-10 h-10 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-black text-sm shadow-xs">
             ⚡
           </div>
           <div>
             <h3 className="text-lg md:text-xl font-bold text-zinc-950 dark:text-white">
-              65 Points Minimum vs Real-World Cut-off Scores
+              65 Points Pass Mark vs Real-World Invitation Cut-offs
             </h3>
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
-              Understanding competition in the SkillSelect pool
+              Department of Home Affairs SkillSelect round analysis
             </p>
           </div>
         </div>
 
         <p className="text-zinc-650 dark:text-zinc-400 text-sm leading-relaxed">
-          While the official pass mark to lodge an Expression of Interest (EOI) is <strong>65 points</strong>, invitations are issued in descending order of points. 
-          Here is how cut-offs generally distribute across occupational sectors:
+          While <strong>65 points</strong> is the legal threshold to lodge an Expression of Interest
+          (EOI), invitations are issued in descending order of points scores within each occupation
+          ceiling. Recent round data reveals three clear cut-off tiers:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm">
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 mb-2">
-              Priority Sector
+          <div className="border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 bg-zinc-50 dark:bg-zinc-950/50">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 mb-3">
+              Tier 1: Priority Occupations
             </span>
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Healthcare & Teaching</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 mb-2 text-xs">Registered Nurses, Teachers, Social Workers</p>
-            <p className="font-extrabold text-teal-600 dark:text-teal-400 text-base">65 – 75 Points</p>
+            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Healthcare &amp; Education</h4>
+            <p className="text-zinc-500 dark:text-zinc-400 mb-3 text-xs leading-relaxed">
+              Registered Nurses, Secondary School Teachers, Early Childhood Educators, Midwives, Doctors.
+            </p>
+            <p className="font-black text-teal-600 dark:text-teal-400 text-lg">65 – 75 Points</p>
           </div>
 
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 mb-2">
-              Moderate Demand
+          <div className="border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 bg-zinc-50 dark:bg-zinc-950/50">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 mb-3">
+              Tier 2: Moderate Competition
             </span>
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Engineering & Trades</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 mb-2 text-xs">Civil, Mechanical, Electricians, Chefs</p>
-            <p className="font-extrabold text-teal-600 dark:text-teal-400 text-base">80 – 85 Points</p>
+            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">Engineering &amp; Trade Skills</h4>
+            <p className="text-zinc-500 dark:text-zinc-400 mb-3 text-xs leading-relaxed">
+              Civil Engineers, Mechanical Engineers, Electrical Engineers, Construction Managers, Chefs.
+            </p>
+            <p className="font-black text-teal-600 dark:text-teal-400 text-lg">80 – 85 Points</p>
           </div>
 
-          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl p-4 bg-zinc-50 dark:bg-zinc-950/50">
-            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 mb-2">
-              High Competition
+          <div className="border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 bg-zinc-50 dark:bg-zinc-950/50">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 mb-3">
+              Tier 3: High Competition
             </span>
-            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">IT, Software & Accounting</h4>
-            <p className="text-zinc-500 dark:text-zinc-400 mb-2 text-xs">Developers, Analysts, Accountants, Auditors</p>
-            <p className="font-extrabold text-teal-600 dark:text-teal-400 text-base">85 – 95+ Points</p>
+            <h4 className="font-bold text-zinc-900 dark:text-white mb-1">IT, Computing &amp; Finance</h4>
+            <p className="text-zinc-500 dark:text-zinc-400 mb-3 text-xs leading-relaxed">
+              Software Engineers, Developer Programmers, ICT Business Analysts, Accountants, Auditors.
+            </p>
+            <p className="font-black text-teal-600 dark:text-teal-400 text-lg">85 – 95+ Points</p>
           </div>
         </div>
 
-        <p className="text-xs text-zinc-500 dark:text-zinc-500">
-          💡 If your score is between 65 and 80 in high-competition professions, consider lodging an EOI for{" "}
-          <Link href="/subclass-190" className="text-teal-600 dark:text-teal-400 font-semibold underline">
-            Subclass 190 (+5 points)
+        <div className="p-4 rounded-2xl bg-teal-50/50 dark:bg-teal-950/30 border border-teal-200/50 dark:border-teal-900/30 text-xs text-teal-800 dark:text-teal-300">
+          💡 <strong>Strategic Insight:</strong> If your points score sits between 65 and 80 in high-competition
+          occupations, increase your invitation probability by lodging parallel EOIs for{" "}
+          <Link href="/subclass-190" className="underline font-bold">
+            Subclass 190 (+5 state points)
           </Link>{" "}
-          or{" "}
-          <Link href="/subclass-491" className="text-teal-600 dark:text-teal-400 font-semibold underline">
-            Subclass 491 (+15 points)
+          and{" "}
+          <Link href="/subclass-491" className="underline font-bold">
+            Subclass 491 (+15 regional points)
           </Link>
           .
-        </p>
+        </div>
       </div>
 
-      {/* SECTION 3: English Test Conversion Comparison */}
+      {/* SECTION 3: English Test Benchmarks Table */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white mb-4">
-          English Language Points Conversion: PTE vs IELTS vs CELPIP
-        </h3>
-        <p className="text-zinc-650 dark:text-zinc-400 text-sm mb-4 leading-relaxed">
-          English proficiency is the single most controllable points driver. Upgrading from Competent (0 pts) to Superior (20 pts) often makes the difference between waiting years and receiving an immediate invitation.
-        </p>
-        <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        <div className="max-w-3xl mb-6">
+          <div className="inline-flex items-center gap-2 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border border-teal-100/50 dark:border-teal-900/30 mb-3">
+            English Benchmarks
+          </div>
+          <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white">
+            English Language Points Conversion: PTE Academic vs IELTS vs CELPIP
+          </h3>
+          <p className="text-zinc-650 dark:text-zinc-400 text-sm mt-2 leading-relaxed">
+            English proficiency is the single most controllable points booster. Moving from Competent
+            (0 pts) to Superior (20 pts) can lift your profile by 20 points:
+          </p>
+        </div>
+
+        <div className="overflow-x-auto rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xs bg-white dark:bg-zinc-900">
           <table className="w-full text-left border-collapse text-xs md:text-sm">
             <thead>
-              <tr className="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-800">
-                <th className="p-3.5 font-bold">English Level</th>
-                <th className="p-3.5 font-bold">IELTS</th>
-                <th className="p-3.5 font-bold">PTE Academic</th>
-                <th className="p-3.5 font-bold">CELPIP General</th>
-                <th className="p-3.5 font-bold text-right">Points Claimable</th>
+              <tr className="bg-zinc-50 dark:bg-zinc-950/60 text-zinc-900 dark:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800">
+                <th className="p-4 font-bold">English Level</th>
+                <th className="p-4 font-bold">IELTS (Academic/General)</th>
+                <th className="p-4 font-bold">PTE Academic</th>
+                <th className="p-4 font-bold">CELPIP General</th>
+                <th className="p-4 font-bold text-right">Points Claimed</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-650 dark:text-zinc-400">
               <tr>
-                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Competent English</td>
-                <td className="p-3.5">6.0 in all 4 bands</td>
-                <td className="p-3.5">50 in each component</td>
-                <td className="p-3.5">Band 7 in each component</td>
-                <td className="p-3.5 text-right font-bold text-zinc-700 dark:text-zinc-300">0 Points</td>
+                <td className="p-4 font-semibold text-zinc-900 dark:text-white">Competent English</td>
+                <td className="p-4">6.0 in all 4 bands</td>
+                <td className="p-4">50 in each section</td>
+                <td className="p-4">Band 7 in each section</td>
+                <td className="p-4 text-right font-extrabold text-zinc-700 dark:text-zinc-300">0 Points</td>
               </tr>
-              <tr className="bg-zinc-50/50 dark:bg-zinc-900/30">
-                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Proficient English</td>
-                <td className="p-3.5">7.0 in all 4 bands</td>
-                <td className="p-3.5">65 in each component</td>
-                <td className="p-3.5">Band 8 in each component</td>
-                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">+10 Points</td>
+              <tr className="bg-zinc-50/50 dark:bg-zinc-950/30">
+                <td className="p-4 font-semibold text-zinc-900 dark:text-white">Proficient English</td>
+                <td className="p-4">7.0 in all 4 bands</td>
+                <td className="p-4">65 in each section</td>
+                <td className="p-4">Band 8 in each section</td>
+                <td className="p-4 text-right font-extrabold text-teal-600 dark:text-teal-400">+10 Points</td>
               </tr>
               <tr>
-                <td className="p-3.5 font-semibold text-zinc-900 dark:text-white">Superior English</td>
-                <td className="p-3.5">8.0 in all 4 bands</td>
-                <td className="p-3.5">79 in each component</td>
-                <td className="p-3.5">Band 9+ in each component</td>
-                <td className="p-3.5 text-right font-bold text-teal-600 dark:text-teal-400">+20 Points</td>
+                <td className="p-4 font-semibold text-zinc-900 dark:text-white">Superior English</td>
+                <td className="p-4">8.0 in all 4 bands</td>
+                <td className="p-4">79 in each section</td>
+                <td className="p-4">Band 9+ in each section</td>
+                <td className="p-4 text-right font-extrabold text-teal-600 dark:text-teal-400">+20 Points</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* SECTION 4: Subclass 189 FAQs */}
+      {/* SECTION 4: Strategic Step-by-Step GSM Guide */}
+      <GsmGuideSection subclassContext="Subclass 189" />
+
+      {/* SECTION 5: Subclass 189 Targeted FAQs */}
       <div>
-        <h3 className="text-xl md:text-2xl font-bold text-zinc-950 dark:text-white mb-6">
-          Frequently Asked Questions About Subclass 189
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {subclass189Faqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 shadow-xs"
-            >
-              <h4 className="text-teal-700 dark:text-teal-400 font-semibold mb-2 text-sm md:text-base">
-                {faq.question}
-              </h4>
-              <p className="text-zinc-600 dark:text-zinc-400 text-xs md:text-sm leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FaqAccordion
+          faqs={subclass189Faqs}
+          title="Frequently Asked Questions: Skilled Independent (Subclass 189)"
+        />
       </div>
     </section>
   );
